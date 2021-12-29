@@ -62,7 +62,7 @@ R² = 0.9147
 r=0.956399498
 Strong Positive Correlation
 
-<img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r3.JPG" width="720" height="600">
+<img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r3.JPG" width="750" height="600">
 
 ````markdown
 > DPvsProv<-read.csv("DPvsProv.csv", header=TRUE)
