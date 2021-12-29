@@ -26,6 +26,7 @@ The project presents a proof of concept of a Fraud Detection Analytics Solution.
 <img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/data_model.jpg" >
 
 
+
 ### 2️⃣ Number of Double-Payments per Provider vs Number of Total Claims per Provider
 <img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/double_pay.jpg" >
 
@@ -38,7 +39,7 @@ Strong Positive Correlation
 
 <img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r1.JPG" >
 
-<img src="https://github.com/vzolotar/Lingva/blob/master/images/lin_distr.JPG" width="600" height="100">
+
 
 ### 3️⃣ Number of Wrong ICDs per Provider vs Total Number of Claims per Provider
 <img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/icds.jpg" >
@@ -50,6 +51,8 @@ Weak Positive Correlation
 
 <img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r2.JPG" >
 
+
+
 ### 4️⃣ Total Number of Claims vs Double-Payments per Location
 
 <img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/claims.jpg" >
@@ -59,7 +62,7 @@ R² = 0.9147
 r=0.956399498
 Strong Positive Correlation
 
-<img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r3.JPG" >
+<img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r3.JPG" width="720" height="600">
 
 ````markdown
 > DPvsProv<-read.csv("DPvsProv.csv", header=TRUE)
@@ -76,6 +79,7 @@ plot(DPvsProv$PROV_CLM_COUNT, DPvsProv$D_FLAG, xlab = "Total number of claims pe
 ````
 
 
+
 ### 5️⃣ Total Number of Claims per Location vs Number of Wrong ICDs per Location
 
 <img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/loc.jpg" >
@@ -85,7 +89,7 @@ R² = 0.8262
 r=0.908955444
 Strong Positive Correlation
 
-<img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r4.JPG" >
+<img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r4.JPG"  width="720" height="600">
 
 ````markdown
 ICDsVSLoc<-read.csv("ICDsVSLoc.csv", header=TRUE)
@@ -102,4 +106,3 @@ PROV_LOCATION_ID LOC_CLM_COUNT WRONG_ICD
 plot(ICDsVSLoc$LOC_CLM_COUNT, ICDsVSLoc$WRONG_ICD, xlab = "Total number of claims per location", ylab = "Number of Wrong ICDs per location", pch = 16, cex = 1.3, col = "blue")
 
 ````
-
