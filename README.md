@@ -1,7 +1,7 @@
 # Big Data Analytics: Fraud Detection
 
 ### 📝 Description 
-The project presents a proof of concept of a Fraud Detection Analytics Solution. The purpose of the project to demonstrate how the potential fraud can be detected based on the mockup data set reflecting the medical records and generated with mockaroo.com and also include the public datasets from kaggle.com 
+The project presents a proof of concept of a Fraud Detection Analytics Solution. The purpose of the project to demonstrate how the potential fraud can be detected based on the mockup data set reflecting the medical records and generated with [mockaroo.com](https://www.mockaroo.com/) and also include the public datasets from [kaggle.com](https://www.kaggle.com/).
 
 -----
 
@@ -16,14 +16,15 @@ The project presents a proof of concept of a Fraud Detection Analytics Solution.
 
 
 ##### Data Sources  
-- mockaroo.com - lets you generate up to 1,000 rows of realistic test data in CSV, JSON, SQL, and Excel formats
-- kaggle.com - Access a huge repository of community published data & code
+- [mockaroo.com](https://www.mockaroo.com/) - lets you generate up to 1,000 rows of realistic test data in CSV, JSON, SQL, and Excel formats
+- [kaggle.com](https://www.kaggle.com/) - Access a huge repository of community published data & code
 
 -----
 
 ### 1️⃣ Data Model
 
 <img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/data_model.jpg" >
+
 
 
 
@@ -39,6 +40,22 @@ Strong Positive Correlation
 
 <img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r1.JPG" >
 
+````markdown
+> DPvsProv<-read.csv("DPvsProv.csv", header=TRUE)
+
+> DPvsProv
+PROVIDER_ID PROV_CLM_COUNT D_FLAG
+
+1  0  1421  146
+2  3  46  0
+3  11  36256  964
+4  17  10119  223
+
+plot(DPvsProv$PROV_CLM_COUNT, DPvsProv$D_FLAG, xlab = "Total number of claims per provider", ylab = "number of double-payments per provider", pch = 16, cex = 1.3, col = "blue")
+
+with(DPvsProv,plot(DPvsProv$PROV_CLM_COUNT, DPvsProv$D_FLAG, xlab = "Total number of claims per provider", ylab = "number of double-payments per provider", pch = 16, cex = 1.3, col = "blue"))
+````
+
 
 
 ### 3️⃣ Number of Wrong ICDs per Provider vs Total Number of Claims per Provider
@@ -51,7 +68,24 @@ Weak Positive Correlation
 
 <img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r2.JPG" >
 
+````markdown
+ICDsvsProv<-read.csv("ICDsvsProv.csv", header=TRUE)
 
+ICDsvsProv
+PROVIDER_ID PROV_CLM_COUNT WRONG_ICD
+
+1  0  1421  2
+2  3  46  0
+3  11  36256  145
+4  17  10119  9
+5  25  26712  42
+6  45  843  0
+7  56  128418  5173
+
+plot(ICDsvsProv$PROV_CLM_COUNT, ICDsvsProv$WRONG_ICD, xlab = "Total number of claims per provider", ylab = "Number of Wrong ICDs per Provider", pch = 16, cex = 1.3, col = "blue")
+
+with(ICDsvsProv,plot(ICDsvsProv$PROV_CLM_COUNT, ICDsvsProv$WRONG_ICD, xlab = "Total number of claims per provider", ylab = "Number of Wrong ICDs per Provider", pch = 16, cex = 1.3, col = "blue"))
+````
 
 ### 4️⃣ Total Number of Claims vs Double-Payments per Location
 
@@ -65,19 +99,23 @@ Strong Positive Correlation
 <img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r3.JPG" width="750" height="600">
 
 ````markdown
-> DPvsProv<-read.csv("DPvsProv.csv", header=TRUE)
+DPvsLoc<-read.csv("DPvsLoc.csv", header=TRUE)
 
-> DPvsProv
-PROVIDER_ID PROV_CLM_COUNT D_FLAG
+DPvsLoc
+PROV_LOCATION_ID LOC_CLM_COUNT D_FLAG
 
-1  0  1421  146
-2  3  46  0
-3  11  36256  964
-4  17  10119  223
+1  1  329879  4809
+2  2  268034  3779
+3  3  283200  6040
+4  4  107953  1925
+5  5  94588  1607
+6  6  582  18
+7  7  173951  1200
 
-plot(DPvsProv$PROV_CLM_COUNT, DPvsProv$D_FLAG, xlab = "Total number of claims per provider", ylab = "number of double-payments per provider", pch = 16, cex = 1.3, col = "blue")
+plot(DPvsLoc$LOC_CLM_COUNT, DPvsLoc$D_FLAG, xlab = "Total number of claims per location", ylab = "number of double-payments per location", pch = 16, cex = 1.3, col = "blue")
+
+with(DPvsLoc,plot(DPvsLoc$LOC_CLM_COUNT, DPvsLoc$D_FLAG, xlab = "Total number of claims per location", ylab = "number of double-payments per location", pch = 16, cex = 1.3, col = "blue"))
 ````
-
 
 
 ### 5️⃣ Total Number of Claims per Location vs Number of Wrong ICDs per Location
@@ -105,4 +143,5 @@ PROV_LOCATION_ID LOC_CLM_COUNT WRONG_ICD
 
 plot(ICDsVSLoc$LOC_CLM_COUNT, ICDsVSLoc$WRONG_ICD, xlab = "Total number of claims per location", ylab = "Number of Wrong ICDs per location", pch = 16, cex = 1.3, col = "blue")
 
+with(ICDsVSLoc,plot(ICDsVSLoc$LOC_CLM_COUNT, ICDsVSLoc$WRONG_ICD, xlab = "Total number of claims per location", ylab = "Number of Wrong ICDs per location", pch = 16, cex = 1.3, col = "blue"))
 ````
