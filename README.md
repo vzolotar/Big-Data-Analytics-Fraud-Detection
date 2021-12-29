@@ -89,7 +89,7 @@ R² = 0.8262
 r=0.908955444
 Strong Positive Correlation
 
-<img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r4.JPG"  width="720" height="600">
+<img src="https://github.com/vzolotar/Big-Data-Analytics-Fraud-Detection/blob/main/images/r4.JPG"  width="750" height="600">
 
 ````markdown
 ICDsVSLoc<-read.csv("ICDsVSLoc.csv", header=TRUE)
